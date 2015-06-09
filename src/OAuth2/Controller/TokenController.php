@@ -108,7 +108,7 @@ class TokenController implements TokenControllerInterface
          * @see OAuth2\GrantType\JWTBearer
          * @see OAuth2\GrantType\ClientCredentials
          */
-        if (!$grantType instanceof ClientAssertionTypeInterface) {
+        if ($grantType instanceof ClientAssertionTypeInterface) {
             if (!$this->clientAssertionType->validateRequest($request, $response)) {
                 return null;
             }
